@@ -1,0 +1,26 @@
+<html>
+
+    <head>
+
+        <title> 
+
+            {% block title %} {% endblock %} 
+
+        </title>
+
+    </head>
+
+    <body>
+        <h1 style=" background-color: darkolivegreen; color: white; text-align: center;"> EJEMPLO DE SUPERIOR (Título heredado de la base o del padre) </h1>
+
+        {% include "Superior/Barra.html" %}
+
+        <h3 style="text-align: right;"> EJEMPLO DE TITULO (Tambien heredado de la base o del padre) </h3>
+
+        {% block content %} {% endblock %}
+
+        <p style=" background-color: darkolivegreen; color: white; text-align: right;"> EJEMPLO DE INFERIOR (Título heredado de la base o del padre) </p>
+
+    </body>
+
+</html>

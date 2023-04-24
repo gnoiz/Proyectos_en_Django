@@ -1,0 +1,64 @@
+{# https://docs.djangoproject.com/en/4.1/ref/templates/builtins/ #}
+
+<html>
+    <body>
+    
+        {% include "Superior/Barra.html" %}
+
+    {# Titulo #}
+    <h1> Hola, este es mi primer proyecto en Django, con algo de Html xD </h1>
+
+    {# Realizamos una comparacion con condicional ==, si es el titular y si no es el titular (suplente) #}
+    {% if nombre_persona == 'Cosme' %}
+    <p> El curso lo imparte el profesor titular. </p>
+    {% else %}
+    <p> El curso lo imparte el profesor suplente. </p>
+    {% endif %}
+
+    {# Mostramos datos con metodo .upper #}
+    <p> <strong>El nombre del profesor es: </strong> {{nombre_persona}} {{apellido_persona.upper}}.</p>
+
+    {# Mostramos datos con filtro pipper | #}
+    <p> <strong>El nombre del profesor es: </strong> {{nombre_persona}} {{apellido_persona|lower}}.</p>
+
+    {# mostramos la fecha completa actual #}
+    <p>Est&aacute;s viendo esto el d&iacute;a: {{fecha_hora_Actuales}}</p>
+
+    {# Mostramos la fecha de forma separada #}
+    <p>Est&aacute;s viendo esto el d&iacute;a: {{fecha_hora_Actuales.day}}, del mes {{fecha_hora_Actuales.month}}, y la hora es: {{fecha_hora_Actuales.hour}}.</p>
+    
+    <p>{{Temas}}.</p>
+    
+    <p>{{Temas.1}}.</p>
+
+    {# Armamos y recorremos una lista con FOR, de forma aleatoria #}
+    <p><strong>Temas del curso: </strong></p>
+    <p><ul>
+        {% for temaPorRecorrer in temas %}
+            <li>{{temaPorRecorrer}}</li>
+        {% endfor %}
+    </ul></p>
+
+    {# Mostramos solamente la primera leta de cada elemento de la lista creada en la línea 30 (utilizando |first) y/o encadenamos otro pipper (|lower) para que muestre en minuscula #}
+    <p><strong>Temas del curso: </strong></p>
+    <p><ul>
+        {% for temaPorRecorrer in temas %}
+            <li>{{temaPorRecorrer|first|lower}}</li>
+        {% endfor %}
+    </ul></p>
+
+    {# Mostramos mensaje en caso de que la lista se encuentre vacía #}
+    <p><strong>Prueba de Lista Vac&iacute;a: </strong></p>
+    <p><ul>
+        {% if lvacia %}
+        {% for temaPorRecorrer in lvacia %}
+            <li>{{temaPorRecorrer}}</li>
+        {% endfor %}
+        {% else %}
+    <p>No hay elementos por mostrar porque tu lista est&aacute; vac&iacute;a :/</p>
+        {% endif %}
+    </ul></p>
+
+    </body>
+</html>
+
